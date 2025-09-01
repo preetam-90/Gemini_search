@@ -140,16 +140,17 @@ export function Search() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="min-h-screen bg-background"
+      className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700"
     >
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4 }}
-        className="max-w-6xl mx-auto p-4"
+        className="max-w-7xl mx-auto p-4 lg:p-6"
       >
+        {/* Header with Search */}
         <motion.div 
-          className="flex items-center gap-4 mb-6"
+          className="flex items-center gap-4 mb-8 lg:mb-12"
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.1 }}
@@ -158,12 +159,12 @@ export function Search() {
             variant="ghost"
             size="icon"
             onClick={() => setLocation('/')}
-            className="hidden sm:flex"
+            className="hidden sm:flex hover:bg-white/60 dark:hover:bg-slate-800/60 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 shadow-sm"
           >
             <ArrowLeft className="h-4 w-4" />
           </Button>
 
-          <div className="w-full max-w-2xl">
+          <div className="w-full max-w-3xl">
             <SearchInput
               onSearch={handleSearch}
               initialValue={searchQuery}
@@ -174,14 +175,15 @@ export function Search() {
           </div>
         </motion.div>
 
+        {/* Results Container */}
         <AnimatePresence mode="wait">
           <motion.div
             key={searchQuery}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="flex flex-col items-stretch"
+            transition={{ duration: 0.4 }}
+            className="space-y-8"
           >
             <SearchResults
               query={isFollowUp ? (followUpQuery || '') : searchQuery}
@@ -196,8 +198,8 @@ export function Search() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.2 }}
-                className="mt-6 max-w-2xl"
+                transition={{ duration: 0.4, delay: 0.2 }}
+                className="max-w-3xl mx-auto"
               >
                 <FollowUpInput
                   onSubmit={handleFollowUp}

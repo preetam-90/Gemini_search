@@ -4,7 +4,7 @@
 
 ![Gemini Search Logo](https://img.shields.io/badge/Gemini-Search-4285f4?style=for-the-badge&logo=google&logoColor=white)
 
-**A Perplexity-style search engine powered by Google's Gemini 2.0 Flash model**
+**A Perplexity-style search engine powered by Google's Gemini 2.5 Flash model**
 
 *Get AI-powered answers to your questions with real-time web sources and citations*
 
